@@ -5,19 +5,366 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>실제 멘토 업무 장면</title>
   <style>
-    :root{--ink:#17141f;--paper:#faf8f5;--muted:#746c7e;--line:#ddd6e4;--violet:#6c3bf2;--violet-soft:#f1ebff;--orange:#ff7048;--orange-soft:#fff0e8;--green:#4e9b78}
-    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;color:var(--ink);background:var(--paper)}body{padding:clamp(18px,3vw,42px) clamp(18px,4vw,60px);overflow:hidden}.eyebrow{font-size:clamp(9px,1.1vw,13px);font-weight:850;letter-spacing:.08em;color:var(--violet)}h1{margin:10px 0 0;font-size:clamp(24px,3.5vw,48px);line-height:1.08;letter-spacing:-.05em}h1 span{color:var(--violet)}.lead{margin:13px 0 0;color:var(--muted);font-size:clamp(10px,1.15vw,15px);line-height:1.5;font-weight:650}.workflow{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,28px);margin-top:clamp(26px,4vw,50px)}.scene{position:relative;min-width:0;border:1px solid var(--line);background:#fff;border-top:5px solid var(--violet);padding:clamp(12px,1.4vw,20px);animation:sceneFocus 9s ease-in-out infinite}.scene:nth-child(2){border-top-color:var(--orange);animation-delay:3s}.scene:nth-child(3){border-top-color:#9b7bff;animation-delay:6s}.scene-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.step{font:850 clamp(9px,1vw,12px)/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--violet)}.scene:nth-child(2) .step{color:#bd4828}.scene:nth-child(3) .step{color:#7049ec}.scene h2{font-size:clamp(14px,1.55vw,22px);line-height:1.2;margin:10px 0 4px}.scene p{margin:0;color:var(--muted);font-size:clamp(9px,1vw,12px);line-height:1.4}.window{margin-top:clamp(12px,1.5vw,20px);border:1px solid #d9d1df;border-radius:8px;overflow:hidden;background:#fff;min-height:clamp(170px,18vw,270px);box-shadow:0 9px 25px rgba(35,20,57,.07)}.window-bar{height:25px;display:flex;align-items:center;gap:5px;padding:0 9px;background:#f2eef4;border-bottom:1px solid #e4deea}.window-bar i{width:6px;height:6px;border-radius:50%;background:#bbb2c3}.window-bar strong{margin-left:auto;font-size:8px;color:#857b8c;letter-spacing:.03em}.slack-window{display:grid;grid-template-columns:31% 69%;height:100%}.slack-side{background:#3f1c45;color:#f4eafa;padding:12px 8px;font-size:8px}.slack-side b{display:block;margin-bottom:12px;font-size:10px}.slack-side span{display:block;padding:5px 4px;color:#cdb9d2}.slack-side span:first-of-type{background:#6c3bf2;border-radius:3px;color:#fff}.slack-chat{padding:10px 9px;background:#fff}.chat-title{font-size:9px;font-weight:800;padding-bottom:7px;border-bottom:1px solid #eee7f0}.message{margin-top:11px;display:flex;gap:6px;opacity:0;animation:messageIn 9s ease-in-out infinite}.message:nth-child(2){animation-delay:.35s}.message:nth-child(3){animation-delay:.7s}.avatar{width:17px;height:17px;border-radius:5px;background:#ffb38e;flex:none}.bubble{background:#f4efff;border-radius:4px;padding:5px 6px;color:#40354c;font-size:8px;line-height:1.35}.message:nth-child(3) .bubble{background:#fff0e8}.download-window{padding:11px}.file-row{display:flex;align-items:center;gap:7px;border-bottom:1px solid #eee7f0;padding:9px 0;font-size:8px}.file-icon{width:20px;height:24px;border:1px solid #cbb8ff;border-radius:3px;background:#f2ecff;display:grid;place-items:center;color:var(--violet);font-size:8px;font-weight:800}.file-row strong{font-size:9px}.file-row small{display:block;color:var(--muted);margin-top:3px}.download-bar{height:4px;margin-top:7px;background:#eee9f5;border-radius:5px;overflow:hidden}.download-bar i{display:block;width:0;height:100%;background:var(--violet);animation:download 9s ease-in-out infinite}.download-window .file-row:nth-child(3) .download-bar i{animation-delay:1s}.memo{margin-top:10px;padding:9px;background:#fffbe9;border:1px solid #f3db9f;color:#6e5721;font:8px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;opacity:0;animation:memoIn 9s ease-in-out infinite}.notion-window{padding:10px}.notion-title{font-size:10px;font-weight:850;margin-bottom:10px}.notion-row{display:grid;grid-template-columns:16px 1fr 32%;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid #eee7f0;font-size:8px}.check{width:11px;height:11px;border:1px solid #b9adca;border-radius:3px}.notion-row.done .check{background:var(--violet);border-color:var(--violet);position:relative}.notion-row.done .check:after{content:"✓";position:absolute;left:2px;top:-2px;color:#fff;font-size:9px}.tag{padding:3px 4px;border-radius:3px;background:#f1ebff;color:var(--violet);font-size:7px;text-align:center}.tag.orange{background:#fff0e8;color:#bd4828}.edit-note{margin-top:12px;padding:8px 9px;background:#f8f5ff;border-left:3px solid var(--violet);font-size:8px;line-height:1.45;color:#5b5068;opacity:0;animation:noteIn 9s ease-in-out infinite}.connector{position:absolute;top:50%;right:calc(-1 * clamp(12px,2vw,28px));width:clamp(12px,2vw,28px);height:3px;background:#d8ccea;z-index:2}.connector:after{content:"";position:absolute;top:-4px;left:0;width:10px;height:10px;border-radius:50%;background:var(--violet);animation:dotMove 9s linear infinite}.scene:nth-child(2) .connector:after{animation-delay:3s}.scene:nth-child(3) .connector{display:none}.footer{margin-top:clamp(16px,2vw,28px);display:flex;align-items:center;gap:8px;color:var(--muted);font-size:clamp(9px,1vw,12px);font-weight:700}.footer b{color:var(--violet)}@keyframes sceneFocus{0%,26%{transform:translateY(0);box-shadow:none}8%,18%{transform:translateY(-7px);box-shadow:0 18px 30px rgba(108,59,242,.14)}33%,100%{transform:translateY(0);box-shadow:none}}@keyframes messageIn{0%,10%{opacity:0;transform:translateY(5px)}16%,31%{opacity:1;transform:translateY(0)}38%,100%{opacity:0}}@keyframes download{0%,18%{width:0}30%,55%{width:100%}65%,100%{width:0}}@keyframes memoIn{0%,28%{opacity:0;transform:translateY(5px)}37%,57%{opacity:1;transform:translateY(0)}66%,100%{opacity:0}}@keyframes noteIn{0%,58%{opacity:0;transform:translateY(5px)}67%,88%{opacity:1;transform:translateY(0)}96%,100%{opacity:0}}@keyframes dotMove{0%{left:0;opacity:0}8%{opacity:1}30%{left:calc(100% - 10px);opacity:1}44%,100%{left:0;opacity:0}}@media(max-width:760px){body{overflow:auto}.workflow{grid-template-columns:1fr}.connector{display:none!important}.window{min-height:190px}}
+    :root{
+      --ink:#17141f;--paper:#f8f6fb;--muted:#746c7e;--line:#e4deea;
+      --violet:#6c3bf2;--violet-soft:#f1ebff;
+      --orange:#ff7048;--orange-soft:#fff0e8;
+      --green:#2da44e;--green-soft:#dafbe1;
+      --slack-bg:#1a1d21;--slack-sidebar:#19171d;--slack-active:#1164a3;
+      --slack-hover:rgba(255,255,255,.06);
+      --notion-bg:#ffffff;--notion-sidebar:#fbfbfa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{min-height:100%;font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper)}
+    body{padding:clamp(18px,3vw,42px) clamp(18px,4vw,60px);overflow:hidden}
+
+    .eyebrow{font-size:clamp(9px,1.1vw,13px);font-weight:850;letter-spacing:.08em;color:var(--violet);text-transform:uppercase}
+    h1{margin:10px 0 0;font-size:clamp(24px,3.5vw,48px);line-height:1.08;letter-spacing:-.05em;font-weight:900}
+    h1 span{color:var(--violet)}
+    .lead{margin:13px 0 0;color:var(--muted);font-size:clamp(10px,1.15vw,15px);line-height:1.5;font-weight:600}
+
+    /* === 워크플로우 그리드 === */
+    .workflow{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.2vw,32px);margin-top:clamp(26px,4vw,50px)}
+
+    /* === 씬 카드 === */
+    .scene{position:relative;min-width:0;border-radius:14px;background:#fff;border:1px solid var(--line);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1)}
+    .scene.active{transform:translateY(-6px);box-shadow:0 20px 40px rgba(108,59,242,.12)}
+    .scene-top{padding:clamp(14px,1.6vw,22px) clamp(14px,1.6vw,22px) 0}
+    .scene-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+    .step{font:850 clamp(9px,1vw,12px)/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--violet)}
+    .scene:nth-child(2) .step{color:var(--orange)}
+    .scene:nth-child(3) .step{color:#7c3aed}
+    .tool-badge{font-size:clamp(9px,1vw,12px);font-weight:700;color:var(--muted);display:flex;align-items:center;gap:4px}
+    .tool-badge img{width:14px;height:14px;opacity:.7}
+    .scene h2{font-size:clamp(14px,1.55vw,22px);line-height:1.25;font-weight:800;letter-spacing:-.02em}
+    .scene>p,.scene-top>p{color:var(--muted);font-size:clamp(9px,1vw,12px);line-height:1.45;font-weight:500;padding:0 clamp(14px,1.6vw,22px);margin:4px 0 0}
+    .scene-top+p{padding:0}
+    .scene-top p{padding:0;margin:4px 0 0}
+
+    /* === 앱 윈도우 (macOS 스타일) === */
+    .window{margin:clamp(12px,1.5vw,18px);border:1px solid #e2dce8;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(35,20,57,.06)}
+    .window-bar{height:28px;display:flex;align-items:center;gap:6px;padding:0 10px;background:linear-gradient(180deg,#f7f5f9 0%,#efeaf3 100%);border-bottom:1px solid #e2dce8}
+    .dot{width:7px;height:7px;border-radius:50%}
+    .dot.r{background:#ff5f57;border:1px solid #e0443e}
+    .dot.y{background:#febc2e;border:1px solid #dea123}
+    .dot.g{background:#28c840;border:1px solid #1aab29}
+    .window-title{margin-left:auto;font-size:8.5px;color:#8a8094;letter-spacing:.02em;font-weight:600}
+
+    /* === Slack 모킹 === */
+    .slack-app{display:grid;grid-template-columns:72px 1fr;min-height:clamp(170px,18vw,260px)}
+    .slack-sidebar{background:var(--slack-sidebar);padding:10px 6px;color:#d1d2d3}
+    .slack-workspace{font-size:9px;font-weight:900;color:#fff;margin-bottom:12px;padding:0 4px;display:flex;align-items:center;gap:3px}
+    .slack-workspace::after{content:"";width:0;height:0;border-left:4px solid #fff;border-top:3px solid transparent;border-bottom:3px solid transparent;margin-left:auto;opacity:.5}
+    .slack-channels{list-style:none}
+    .slack-channels li{font-size:8px;padding:4px 6px;border-radius:4px;color:#b4b6b9;cursor:default;display:flex;align-items:center;gap:4px}
+    .slack-channels li::before{content:"#";font-weight:700;opacity:.5}
+    .slack-channels li.active{background:var(--slack-active);color:#fff}
+    .slack-channels li.active::before{opacity:1}
+    .slack-channels li+li{margin-top:1px}
+    .slack-main{background:#fff;display:flex;flex-direction:column}
+    .slack-header{padding:8px 10px;border-bottom:1px solid #e8e8e8;font-size:9.5px;font-weight:800;color:#1d1c1d;display:flex;align-items:center;gap:4px}
+    .slack-header::before{content:"#";color:var(--muted);font-weight:700}
+    .slack-messages{flex:1;padding:6px 10px;overflow:hidden}
+    .msg{display:flex;gap:7px;padding:6px 0;opacity:0;transform:translateY(8px)}
+    .msg.show{opacity:1;transform:translateY(0);transition:opacity .4s ease,transform .4s ease}
+    .msg+.msg{border-top:1px solid #f5f3f7}
+    .msg-avatar{width:22px;height:22px;border-radius:5px;flex:none}
+    .msg-avatar.a1{background:linear-gradient(135deg,#ff9a6c,#ff6b9d)}
+    .msg-avatar.a2{background:linear-gradient(135deg,#6cb4ff,#9d6cff)}
+    .msg-avatar.a3{background:linear-gradient(135deg,#6cffb4,#6c9dff)}
+    .msg-body{min-width:0}
+    .msg-name{font-size:8.5px;font-weight:800;color:#1d1c1d}
+    .msg-name time{font-weight:400;color:#b4b6b9;margin-left:5px;font-size:7.5px}
+    .msg-text{font-size:8.5px;color:#1d1c1d;line-height:1.45;margin-top:2px}
+    .msg-emoji{display:inline-block;font-size:10px;vertical-align:middle}
+    .msg-react{margin-top:4px;display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border:1px solid #e8e8e8;border-radius:10px;font-size:7px;color:var(--muted);opacity:0}
+    .msg-react.show{opacity:1;transition:opacity .3s ease .15s}
+
+    /* === 다운로드/메모 모킹 === */
+    .download-app{min-height:clamp(170px,18vw,260px);display:flex;flex-direction:column}
+    .file-list{padding:8px 10px;flex:1}
+    .file-row{display:flex;align-items:center;gap:8px;padding:8px 6px;border-radius:6px;transition:background .2s}
+    .file-row:hover{background:#f8f5ff}
+    .file-row+.file-row{border-top:1px solid #f3eff7}
+    .file-icon{width:24px;height:28px;border-radius:4px;display:grid;place-items:center;font-size:7px;font-weight:900;color:#fff;flex:none;position:relative}
+    .file-icon.pdf{background:linear-gradient(135deg,#e74c3c,#c0392b)}
+    .file-icon::after{content:"";position:absolute;top:0;right:0;width:7px;height:7px;background:rgba(255,255,255,.3);clip-path:polygon(0 0,100% 100%,100% 0)}
+    .file-info{flex:1;min-width:0}
+    .file-info strong{font-size:9px;display:block;color:#1d1c1d}
+    .file-info small{font-size:7.5px;color:var(--muted);display:flex;align-items:center;gap:4px;margin-top:2px}
+    .progress-wrap{height:3px;margin-top:5px;background:#eee9f5;border-radius:3px;overflow:hidden}
+    .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--violet),#9b6cff);border-radius:3px;transition:width .05s linear}
+    .file-check{width:14px;height:14px;border-radius:50%;border:1.5px solid #d0c8da;display:grid;place-items:center;opacity:0;transform:scale(.5)}
+    .file-check.done{opacity:1;transform:scale(1);border-color:var(--green);background:var(--green);transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+    .file-check.done::after{content:"";width:4px;height:7px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translate(-0.5px,-0.5px)}
+    .memo-pad{margin:6px 10px 10px;padding:8px 10px;background:#fffbe8;border:1px solid #f0dfa0;border-radius:6px;font:8px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:#6e5721;opacity:0;transform:translateY(6px)}
+    .memo-pad.show{opacity:1;transform:translateY(0);transition:opacity .4s ease,transform .4s ease}
+    .memo-cursor{display:inline-block;width:1px;height:10px;background:#6e5721;animation:blink 1s step-end infinite;vertical-align:middle;margin-left:1px}
+    @keyframes blink{50%{opacity:0}}
+
+    /* === Notion 모킹 === */
+    .notion-app{min-height:clamp(170px,18vw,260px)}
+    .notion-header{padding:10px 12px 6px;display:flex;align-items:center;gap:5px}
+    .notion-breadcrumb{font-size:8px;color:var(--muted);display:flex;align-items:center;gap:3px}
+    .notion-breadcrumb span{opacity:.6}
+    .notion-page-title{padding:0 12px;font-size:11px;font-weight:900;color:#37352f;margin-bottom:8px}
+    .notion-table{margin:0 8px 8px;border:1px solid #e9e5ef;border-radius:6px;overflow:hidden}
+    .notion-row{display:grid;grid-template-columns:18px 1fr auto;gap:6px;align-items:center;padding:7px 10px;font-size:8.5px;color:#37352f;border-bottom:1px solid #f0ecf4}
+    .notion-row:last-child{border-bottom:none}
+    .notion-row:hover{background:#f7f6f3}
+    .n-check{width:13px;height:13px;border:1.5px solid #d3ccd9;border-radius:3px;display:grid;place-items:center;cursor:default;transition:all .3s}
+    .n-check.checked{background:var(--violet);border-color:var(--violet)}
+    .n-check.checked::after{content:"";width:4px;height:7px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translate(-0.5px,-0.5px)}
+    .n-tag{padding:2px 6px;border-radius:3px;font-size:7.5px;font-weight:600;white-space:nowrap}
+    .n-tag.pass{background:var(--green-soft);color:var(--green)}
+    .n-tag.fix{background:var(--orange-soft);color:#c4391a}
+    .n-tag.review{background:var(--violet-soft);color:var(--violet)}
+    .notion-note{margin:6px 8px 10px;padding:7px 10px;background:#f8f5ff;border-left:3px solid var(--violet);border-radius:0 6px 6px 0;font-size:8px;line-height:1.5;color:#5b5068;opacity:0;transform:translateY(6px)}
+    .notion-note.show{opacity:1;transform:translateY(0);transition:opacity .4s ease,transform .4s ease}
+
+    /* === 카드 연결선 === */
+    .connector{position:absolute;top:50%;right:calc(-1 * clamp(14px,2.2vw,32px));width:clamp(14px,2.2vw,32px);height:2px;background:#e4deea;z-index:2;display:flex;align-items:center;justify-content:center}
+    .connector-dot{width:8px;height:8px;border-radius:50%;background:var(--violet);opacity:0;transform:scale(0)}
+    .connector-dot.pulse{opacity:1;transform:scale(1);transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+    .scene:nth-child(3) .connector{display:none}
+
+    /* === 하단 === */
+    .footer{margin-top:clamp(16px,2vw,28px);display:flex;align-items:center;gap:8px;color:var(--muted);font-size:clamp(9px,1vw,12px);font-weight:700}
+    .footer b{color:var(--violet)}
+
+    @media(max-width:760px){body{overflow:auto}.workflow{grid-template-columns:1fr}.connector{display:none!important}}
   </style>
 </head>
 <body>
   <div class="eyebrow">FIELD WORKFLOW / 실제 업무 장면</div>
   <h1>과제 제출부터 피드백 수정까지,<br><span>멘토의 하루는 이렇게 흘렀습니다.</span></h1>
   <p class="lead">알림을 확인하고, 파일을 내려받아 정리하고, 기준과 피드백을 다시 고치는 반복 작업이었습니다.</p>
+
   <div class="workflow">
-    <section class="scene"><div class="scene-head"><span class="step">01 / 수집</span><span>Slack</span></div><h2>“멘토님! 과제 제출합니다”</h2><p>제출 알림이 채널에 차례로 쌓입니다.</p><div class="window"><div class="window-bar"><i></i><i></i><i></i><strong>slack / 멘토링</strong></div><div class="slack-window"><aside class="slack-side"><b>AWAC</b><span>#멘토링</span><span>#공지</span><span>#자료</span></aside><div class="slack-chat"><div class="chat-title">멘토링 과제 제출</div><div class="message"><i class="avatar"></i><div class="bubble"><b>민지</b><br>멘토님! 과제 제출합니다 🙌</div></div><div class="message"><i class="avatar"></i><div class="bubble"><b>도현</b><br>확인 부탁드립니다!</div></div></div></div></div><span class="connector"></span></section>
-    <section class="scene"><div class="scene-head"><span class="step">02 / 정리</span><span>파일과 메모</span></div><h2>하나씩 내려받고 요약합니다</h2><p>제출물을 열어 핵심 내용과 문제를 메모합니다.</p><div class="window"><div class="window-bar"><i></i><i></i><i></i><strong>다운로드 / 멘토 메모</strong></div><div class="download-window"><div class="file-row"><span class="file-icon">PDF</span><div><strong>민지_과제.pdf</strong><small>다운로드 중</small><div class="download-bar"><i></i></div></div></div><div class="file-row"><span class="file-icon">PDF</span><div><strong>도현_과제.pdf</strong><small>내용 확인</small><div class="download-bar"><i></i></div></div></div><div class="memo">핵심 문제<br>1. 입력 자료가 흩어짐<br>2. 다음 행동이 모호함<br><br>→ 피드백 초안 필요</div></div></div><span class="connector"></span></section>
-    <section class="scene"><div class="scene-head"><span class="step">03 / 수정</span><span>Notion</span></div><h2>기준과 피드백을 다시 고칩니다</h2><p>멘토 메모를 기준 문서와 다음 실행에 반영합니다.</p><div class="window"><div class="window-bar"><i></i><i></i><i></i><strong>notion / 반복 기준</strong></div><div class="notion-window"><div class="notion-title">이번 주 피드백 기준</div><div class="notion-row done"><span class="check"></span><b>진단이 명확한가</b><span class="tag">통과</span></div><div class="notion-row"><span class="check"></span><b>다음 행동이 보이는가</b><span class="tag orange">수정</span></div><div class="notion-row"><span class="check"></span><b>PDF와 멘트가 일치하는가</b><span class="tag">확인</span></div><div class="edit-note">수정 이유를 기준 문서에 남김<br>다음 실행에서 다시 사용</div></div></div></section>
+    <!-- 01 수집: Slack -->
+    <section class="scene" id="s1">
+      <div class="scene-top">
+        <div class="scene-head"><span class="step">01 / 수집</span><span class="tool-badge">Slack</span></div>
+        <h2>"멘토님! 과제 제출합니다"</h2>
+        <p>제출 알림이 채널에 차례로 쌓입니다.</p>
+      </div>
+      <div class="window">
+        <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">slack / 멘토링</span></div>
+        <div class="slack-app">
+          <aside class="slack-sidebar">
+            <div class="slack-workspace">AWAC</div>
+            <ul class="slack-channels">
+              <li class="active">멘토링</li>
+              <li>공지</li>
+              <li>자료</li>
+            </ul>
+          </aside>
+          <div class="slack-main">
+            <div class="slack-header">멘토링 과제 제출</div>
+            <div class="slack-messages">
+              <div class="msg" id="m1"><i class="msg-avatar a1"></i><div class="msg-body"><div class="msg-name">민지 <time>오후 2:04</time></div><div class="msg-text">멘토님! 과제 제출합니다 <span class="msg-emoji">&#x1F64C;</span></div><div class="msg-react" id="r1"><span class="msg-emoji">&#x1F440;</span> 1</div></div></div>
+              <div class="msg" id="m2"><i class="msg-avatar a2"></i><div class="msg-body"><div class="msg-name">도현 <time>오후 2:12</time></div><div class="msg-text">확인 부탁드립니다!</div><div class="msg-react" id="r2"><span class="msg-emoji">&#x2705;</span> 1</div></div></div>
+              <div class="msg" id="m3"><i class="msg-avatar a3"></i><div class="msg-body"><div class="msg-name">서연 <time>오후 2:31</time></div><div class="msg-text">늦어서 죄송합니다! 제출 완료요</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="connector"><span class="connector-dot" id="cd1"></span></span>
+    </section>
+
+    <!-- 02 정리: 파일과 메모 -->
+    <section class="scene" id="s2">
+      <div class="scene-top">
+        <div class="scene-head"><span class="step">02 / 정리</span><span class="tool-badge">파일과 메모</span></div>
+        <h2>하나씩 내려받고 요약합니다</h2>
+        <p>제출물을 열어 핵심 내용과 문제를 메모합니다.</p>
+      </div>
+      <div class="window">
+        <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">다운로드 / 멘토 메모</span></div>
+        <div class="download-app">
+          <div class="file-list">
+            <div class="file-row">
+              <span class="file-icon pdf">PDF</span>
+              <div class="file-info">
+                <strong>민지_과제.pdf</strong>
+                <small id="f1status">대기 중</small>
+                <div class="progress-wrap"><div class="progress-bar" id="pb1"></div></div>
+              </div>
+              <span class="file-check" id="fc1"></span>
+            </div>
+            <div class="file-row">
+              <span class="file-icon pdf">PDF</span>
+              <div class="file-info">
+                <strong>도현_과제.pdf</strong>
+                <small id="f2status">대기 중</small>
+                <div class="progress-wrap"><div class="progress-bar" id="pb2"></div></div>
+              </div>
+              <span class="file-check" id="fc2"></span>
+            </div>
+            <div class="file-row">
+              <span class="file-icon pdf">PDF</span>
+              <div class="file-info">
+                <strong>서연_과제.pdf</strong>
+                <small id="f3status">대기 중</small>
+                <div class="progress-wrap"><div class="progress-bar" id="pb3"></div></div>
+              </div>
+              <span class="file-check" id="fc3"></span>
+            </div>
+          </div>
+          <div class="memo-pad" id="memo"></div>
+        </div>
+      </div>
+      <span class="connector"><span class="connector-dot" id="cd2"></span></span>
+    </section>
+
+    <!-- 03 수정: Notion -->
+    <section class="scene" id="s3">
+      <div class="scene-top">
+        <div class="scene-head"><span class="step">03 / 수정</span><span class="tool-badge">Notion</span></div>
+        <h2>기준과 피드백을 다시 고칩니다</h2>
+        <p>멘토 메모를 기준 문서와 다음 실행에 반영합니다.</p>
+      </div>
+      <div class="window">
+        <div class="window-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="window-title">notion / 반복 기준</span></div>
+        <div class="notion-app">
+          <div class="notion-header">
+            <div class="notion-breadcrumb">AWAC <span>/</span> 멘토링 <span>/</span> 피드백 기준</div>
+          </div>
+          <div class="notion-page-title">이번 주 피드백 기준</div>
+          <div class="notion-table">
+            <div class="notion-row" id="nr1"><span class="n-check" id="nc1"></span><b>진단이 명확한가</b><span class="n-tag pass" id="nt1" style="opacity:0">통과</span></div>
+            <div class="notion-row" id="nr2"><span class="n-check" id="nc2"></span><b>다음 행동이 보이는가</b><span class="n-tag fix" id="nt2" style="opacity:0">수정</span></div>
+            <div class="notion-row" id="nr3"><span class="n-check" id="nc3"></span><b>PDF와 멘트가 일치하는가</b><span class="n-tag review" id="nt3" style="opacity:0">확인</span></div>
+          </div>
+          <div class="notion-note" id="nnote">수정 이유를 기준 문서에 남김<br>다음 실행에서 다시 사용</div>
+        </div>
+      </div>
+      <span class="connector"></span>
+    </section>
   </div>
+
   <div class="footer"><b>문제의 핵심</b><span>결과를 만드는 시간보다, 같은 판단을 반복할 기준이 없었던 것이었습니다.</span></div>
+
+<script>
+(function(){
+  const CYCLE = 12000;
+  const scenes = [document.getElementById('s1'),document.getElementById('s2'),document.getElementById('s3')];
+
+  function activateScene(idx){
+    scenes.forEach((s,i)=>s.classList.toggle('active',i===idx));
+  }
+
+  // === Phase 1: Slack messages ===
+  function phase1(){
+    activateScene(0);
+    const msgs = [document.getElementById('m1'),document.getElementById('m2'),document.getElementById('m3')];
+    const reacts = [document.getElementById('r1'),document.getElementById('r2')];
+    msgs.forEach(m=>{m.classList.remove('show');});
+    reacts.forEach(r=>{r.classList.remove('show');});
+
+    setTimeout(()=>msgs[0].classList.add('show'),300);
+    setTimeout(()=>{msgs[1].classList.add('show');reacts[0].classList.add('show');},900);
+    setTimeout(()=>{msgs[2].classList.add('show');reacts[1].classList.add('show');},1500);
+    setTimeout(()=>document.getElementById('cd1').classList.add('pulse'),2800);
+  }
+
+  // === Phase 2: File download + memo ===
+  function phase2(){
+    activateScene(1);
+    const bars = ['pb1','pb2','pb3'];
+    const checks = ['fc1','fc2','fc3'];
+    const statuses = ['f1status','f2status','f3status'];
+    const memo = document.getElementById('memo');
+    memo.classList.remove('show');
+    memo.innerHTML = '';
+    bars.forEach(id=>{document.getElementById(id).style.width='0';});
+    checks.forEach(id=>{document.getElementById(id).classList.remove('done');});
+    statuses.forEach(id=>{document.getElementById(id).textContent='대기 중';});
+
+    function downloadFile(barId,checkId,statusId,delay){
+      setTimeout(()=>{
+        const bar=document.getElementById(barId);
+        const status=document.getElementById(statusId);
+        status.textContent='다운로드 중...';
+        let w=0;
+        const iv=setInterval(()=>{
+          w+=Math.random()*18+5;
+          if(w>=100){w=100;clearInterval(iv);
+            bar.style.width='100%';
+            status.textContent='완료';
+            document.getElementById(checkId).classList.add('done');
+          }else{bar.style.width=w+'%';}
+        },60);
+      },delay);
+    }
+    downloadFile('pb1','fc1','f1status',200);
+    downloadFile('pb2','fc2','f2status',800);
+    downloadFile('pb3','fc3','f3status',1400);
+
+    const memoLines = [
+      '[ 핵심 문제 ]',
+      '1. 입력 자료가 흩어져 있음',
+      '2. 다음 행동이 모호함',
+      '',
+      '→ 피드백 초안 작성 필요'
+    ];
+    setTimeout(()=>{
+      memo.classList.add('show');
+      let li=0,ci=0;
+      function typeMemo(){
+        if(li>=memoLines.length)return;
+        if(memoLines[li]===''){memo.innerHTML+='<br>';li++;ci=0;setTimeout(typeMemo,100);return;}
+        if(ci===0&&li>0)memo.innerHTML+='<br>';
+        const ch=memoLines[li][ci];
+        // remove old cursor
+        const cur=memo.querySelector('.memo-cursor');
+        if(cur)cur.remove();
+        memo.innerHTML+=ch+'<span class="memo-cursor"></span>';
+        ci++;
+        if(ci>=memoLines[li].length){li++;ci=0;setTimeout(typeMemo,180);}
+        else{setTimeout(typeMemo,40+Math.random()*30);}
+      }
+      typeMemo();
+    },2200);
+    setTimeout(()=>document.getElementById('cd2').classList.add('pulse'),3600);
+  }
+
+  // === Phase 3: Notion checks + note ===
+  function phase3(){
+    activateScene(2);
+    const checks=['nc1','nc2','nc3'];
+    const tags=['nt1','nt2','nt3'];
+    const note=document.getElementById('nnote');
+    checks.forEach(id=>document.getElementById(id).classList.remove('checked'));
+    tags.forEach(id=>{document.getElementById(id).style.opacity='0';});
+    note.classList.remove('show');
+
+    setTimeout(()=>{document.getElementById('nc1').classList.add('checked');document.getElementById('nt1').style.opacity='1';},400);
+    setTimeout(()=>{document.getElementById('nc2').classList.add('checked');document.getElementById('nt2').style.opacity='1';},1000);
+    setTimeout(()=>{document.getElementById('nc3').classList.add('checked');document.getElementById('nt3').style.opacity='1';},1600);
+    setTimeout(()=>note.classList.add('show'),2200);
+  }
+
+  function reset(){
+    scenes.forEach(s=>s.classList.remove('active'));
+    ['m1','m2','m3'].forEach(id=>document.getElementById(id).classList.remove('show'));
+    ['r1','r2'].forEach(id=>document.getElementById(id).classList.remove('show'));
+    ['cd1','cd2'].forEach(id=>document.getElementById(id).classList.remove('pulse'));
+    document.getElementById('memo').classList.remove('show');
+    document.getElementById('memo').innerHTML='';
+    document.getElementById('nnote').classList.remove('show');
+  }
+
+  function runCycle(){
+    reset();
+    setTimeout(phase1,200);
+    setTimeout(phase2,3800);
+    setTimeout(phase3,8000);
+  }
+
+  runCycle();
+  setInterval(runCycle,CYCLE);
+})();
+</script>
 </body>
 </html>
