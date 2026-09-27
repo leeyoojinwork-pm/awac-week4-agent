@@ -50,7 +50,7 @@
   .code .g{width:46px;flex:none;text-align:right;padding-right:18px;color:#5a5a5a;user-select:none;}
   .code .c{flex:1;padding-right:20px;}
   .h1{color:var(--pur);} .key{color:var(--kw);} .str{color:var(--org);} .com{color:#6a9955;} .cur{color:var(--grn);}
-  .panel{height:250px;background:var(--ed);border-top:1px solid #333;flex:none;display:flex;flex-direction:column;}
+  .panel{height:clamp(126px,33vh,210px);background:var(--ed);border-top:1px solid #333;flex:none;display:flex;flex-direction:column;}
   .ptabs{height:30px;background:#252526;display:flex;align-items:center;gap:18px;padding:0 16px;flex:none;}
   .ptabs span{font-size:11px;letter-spacing:.5px;color:#858585;font-family:"Apple SD Gothic Neo",sans-serif;}
   .ptabs .on{color:#fff;border-bottom:1px solid #fff;height:30px;display:flex;align-items:center;}
@@ -59,6 +59,7 @@
   .term .acc{color:#dcdcaa;} .term .gate{color:#f48771;font-weight:700;}
   .vsrun-cur{display:inline-block;width:7px;height:1em;background:#d4d4d4;vertical-align:-2px;animation:bk 1s step-end infinite;}
   @keyframes bk{50%{opacity:0;}}
+  @media (max-height:540px){.title{height:30px}.tabs{height:32px}.tab{font-size:12px}.editor{padding:8px 0}.code{font-size:12px;line-height:1.5}.panel{height:126px}.ptabs{height:26px}.ptabs .on{height:26px}.term{padding:7px 14px;font-size:12px;line-height:1.45}}
 </style>
 </head>
 <body>
