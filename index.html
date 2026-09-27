@@ -386,7 +386,7 @@
     slides[5].before(slides[6]);
     slides=[...document.querySelectorAll('.slide')];
     slides[5].querySelector('.num').textContent='06';slides[6].querySelector('.num').textContent='07';
-    const knowledgeHeading=document.querySelector('.consulting-extract .extract-heading');if(knowledgeHeading)knowledgeHeading.innerHTML='<span>암묵지를 명시지로 푸는 꿀팁</span><h2>감각은 세 가지 질문으로 꺼냅니다.</h2>';
+    const knowledgeHeading=document.querySelector('.consulting-extract .extract-heading');if(knowledgeHeading)knowledgeHeading.innerHTML='<span>암묵지를 명시지로 푸는 꿀팁</span><h2>감각을 말로 꺼내기</h2>';
     const flowLabels=[null,null,null,null,'02 / USER JOB','02 / USER JOB',null,null,'01 / WHY GAP','03 / JOURNEY','04 / INTELLIGENCE FIT','04 / INTELLIGENCE FIT','04 / INTELLIGENCE FIT','05 / NEXT AGENT','04 / INTELLIGENCE FIT','05 / NEXT AGENT','05 / NEXT AGENT','05 / NEXT AGENT','05 / NEXT AGENT'];
     slides.forEach((slide,i)=>{const eyebrow=slide.querySelector('.eyebrow');if(eyebrow&&flowLabels[i])eyebrow.textContent=flowLabels[i]});
     const flowStart=slides.findIndex(s=>s.dataset.title==='문제에서 해결책까지');
