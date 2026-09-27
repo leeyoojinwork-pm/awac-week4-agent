@@ -64,7 +64,7 @@
 <body>
   <div class="ctrls">
     <button id="replay">▶ 처음부터 다시 보기</button>
-    <span class="cap">실제 실행하면 VS Code 터미널에서 이렇게 진행됩니다 (멋사 멘토링 운영 OS 예시)</span>
+    <span class="cap">설명용 실행 시연 / 고정 시나리오이며 실제 Claude 실행 로그가 아닙니다</span>
   </div>
 
   <div class="win">
@@ -158,6 +158,8 @@ async function run(){
   termLine('<span class="ok">●</span> Read <span class="dim">01_이번제출물/멘티_제출물.md</span>');highlight('.r-submit');await sleep(520);
   termLine('<span class="ok">●</span> Read <span class="dim">02_반복기준/6가지_피드백_유형.md</span>');highlight('.r-type');await sleep(650);
   termLine('<span class="acc">●</span> <span class="dim">유형 분류:</span> <span class="acc">3유형</span> <span class="dim">(실행했으나 검증 부족)</span>');await sleep(750);
+  termLine('<span class="acc">● Orchestrator → 진단 Agent: 공통 진단과 근거 반환</span>');await sleep(650);
+  termLine('<span class="acc">● PDF Agent + 멘트 Agent: 같은 진단 파일을 읽고 각각 작성</span>');await sleep(650);
   addFile('피드백_초안.md');
   termLine('<span class="ok">●</span> Write <span class="cur">04_결과물/피드백_초안.md</span> <span class="ok">✓</span>');
   $('#tabname').textContent='피드백_초안.md';
@@ -165,6 +167,11 @@ async function run(){
   await sleep(450);
   addFile('피드백_리포트.pdf');
   termLine('<span class="ok">●</span> Write <span class="cur">04_결과물/피드백_리포트.pdf</span> <span class="ok">✓</span>');await sleep(550);
+  addFile('Slack_멘트.md');
+  termLine('<span class="gate">검수 Agent → NEEDS_REVISION: Slack의 다음 행동이 공통 진단과 다름</span>');await sleep(1000);
+  termLine('<span class="acc">Orchestrator → 멘트 Agent: 공통 진단에 맞춰 수정 (1/2)</span>');await sleep(900);
+  termLine('<span class="ok">재검수: 진단 일치 확인 / 수정 이유를 기록</span>');await sleep(600);
+  termLine('<span class="dim">운영 규칙 예시: 2회 수정 후에도 실패하면 중단하고 멘토에게 전달</span>');
   termLine('<span class="gate">───────────────────────────────────────────────</span>');
   termLine('<span class="gate">⏸  멘토 검수 게이트 - 유진님이 확인 후 슬랙 발송. AI는 여기서 멈춤.</span>');
   $('#term').scrollTop=$('#term').scrollHeight;
