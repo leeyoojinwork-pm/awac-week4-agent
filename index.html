@@ -382,7 +382,11 @@
   </section></main>
   <footer class="bottom"><div class="bottom-left"><b id="chapter">01 / 오늘의 질문</b><span id="caption">반복 업무에 기준을 남기는 Agent를 설계합니다.</span></div><div class="controls"><button id="prev" aria-label="이전 슬라이드">←</button><span class="counter"><b id="current">01</b> / <span id="total">21</span></span><button id="next" class="next" aria-label="다음 슬라이드">→</button></div><div class="progress"><i id="progress"></i></div></footer>
   <script>
-    const slides=[...document.querySelectorAll('.slide')];
+    let slides=[...document.querySelectorAll('.slide')];
+    slides[5].before(slides[6]);
+    slides=[...document.querySelectorAll('.slide')];
+    slides[5].querySelector('.num').textContent='06';slides[6].querySelector('.num').textContent='07';
+    const knowledgeHeading=document.querySelector('.consulting-extract .extract-heading');if(knowledgeHeading)knowledgeHeading.innerHTML='<span>암묵지를 명시지로 푸는 꿀팁</span><h2>감각은 세 가지 질문으로 꺼냅니다.</h2>';
     const flowLabels=[null,null,null,null,'02 / USER JOB','02 / USER JOB',null,null,'01 / WHY GAP','03 / JOURNEY','04 / INTELLIGENCE FIT','04 / INTELLIGENCE FIT','04 / INTELLIGENCE FIT','05 / NEXT AGENT','04 / INTELLIGENCE FIT','05 / NEXT AGENT','05 / NEXT AGENT','05 / NEXT AGENT','05 / NEXT AGENT'];
     slides.forEach((slide,i)=>{const eyebrow=slide.querySelector('.eyebrow');if(eyebrow&&flowLabels[i])eyebrow.textContent=flowLabels[i]});
     const flowStart=slides.findIndex(s=>s.dataset.title==='문제에서 해결책까지');
