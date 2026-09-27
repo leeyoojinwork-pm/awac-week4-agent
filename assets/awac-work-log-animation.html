@@ -15,8 +15,8 @@
       --notion-bg:#ffffff;--notion-sidebar:#fbfbfa;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{min-height:100%;font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper)}
-    body{padding:clamp(18px,3vw,42px) clamp(18px,4vw,60px);overflow:hidden}
+    html,body{height:100%;font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper)}
+    body{padding:clamp(14px,2.2vw,32px) clamp(16px,3vw,48px);overflow:hidden;display:flex;flex-direction:column}
 
     .eyebrow{font-size:clamp(9px,1.1vw,13px);font-weight:850;letter-spacing:.08em;color:var(--violet);text-transform:uppercase}
     h1{margin:10px 0 0;font-size:clamp(24px,3.5vw,48px);line-height:1.08;letter-spacing:-.05em;font-weight:900}
@@ -24,12 +24,13 @@
     .lead{margin:13px 0 0;color:var(--muted);font-size:clamp(10px,1.15vw,15px);line-height:1.5;font-weight:600}
 
     /* === 워크플로우 그리드 === */
-    .workflow{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.2vw,32px);margin-top:clamp(26px,4vw,50px)}
+    .workflow{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.2vw,32px);margin-top:clamp(16px,2.5vw,32px);flex:1;min-height:0}
 
     /* === 씬 카드 === */
     .scene{position:relative;min-width:0;border-radius:14px;background:#fff;border:1px solid var(--line);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1)}
     .scene.active{transform:translateY(-6px);box-shadow:0 20px 40px rgba(108,59,242,.12)}
-    .scene-top{padding:clamp(14px,1.6vw,22px) clamp(14px,1.6vw,22px) 0}
+    .scene{display:flex;flex-direction:column}
+    .scene-top{padding:clamp(10px,1.3vw,18px) clamp(12px,1.4vw,18px) 0}
     .scene-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
     .step{font:850 clamp(9px,1vw,12px)/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--violet)}
     .scene:nth-child(2) .step{color:var(--orange)}
@@ -42,7 +43,7 @@
     .scene-top p{padding:0;margin:4px 0 0}
 
     /* === 앱 윈도우 (macOS 스타일) === */
-    .window{margin:clamp(12px,1.5vw,18px);border:1px solid #e2dce8;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(35,20,57,.06)}
+    .window{margin:clamp(8px,1.2vw,14px);border:1px solid #e2dce8;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(35,20,57,.06)}
     .window-bar{height:28px;display:flex;align-items:center;gap:6px;padding:0 10px;background:linear-gradient(180deg,#f7f5f9 0%,#efeaf3 100%);border-bottom:1px solid #e2dce8}
     .dot{width:7px;height:7px;border-radius:50%}
     .dot.r{background:#ff5f57;border:1px solid #e0443e}
@@ -51,7 +52,7 @@
     .window-title{margin-left:auto;font-size:8.5px;color:#8a8094;letter-spacing:.02em;font-weight:600}
 
     /* === Slack 모킹 === */
-    .slack-app{display:grid;grid-template-columns:72px 1fr;min-height:clamp(170px,18vw,260px)}
+    .slack-app{display:grid;grid-template-columns:72px 1fr;min-height:clamp(140px,15vw,220px)}
     .slack-sidebar{background:var(--slack-sidebar);padding:10px 6px;color:#d1d2d3}
     .slack-workspace{font-size:9px;font-weight:900;color:#fff;margin-bottom:12px;padding:0 4px;display:flex;align-items:center;gap:3px}
     .slack-workspace::after{content:"";width:0;height:0;border-left:4px solid #fff;border-top:3px solid transparent;border-bottom:3px solid transparent;margin-left:auto;opacity:.5}
@@ -81,7 +82,7 @@
     .msg-react.show{opacity:1;transition:opacity .3s ease .15s}
 
     /* === 다운로드/메모 모킹 === */
-    .download-app{min-height:clamp(170px,18vw,260px);display:flex;flex-direction:column}
+    .download-app{min-height:clamp(140px,15vw,220px);display:flex;flex-direction:column}
     .file-list{padding:8px 10px;flex:1}
     .file-row{display:flex;align-items:center;gap:8px;padding:8px 6px;border-radius:6px;transition:background .2s}
     .file-row:hover{background:#f8f5ff}
@@ -103,7 +104,7 @@
     @keyframes blink{50%{opacity:0}}
 
     /* === Notion 모킹 === */
-    .notion-app{min-height:clamp(170px,18vw,260px)}
+    .notion-app{min-height:clamp(140px,15vw,220px)}
     .notion-header{padding:10px 12px 6px;display:flex;align-items:center;gap:5px}
     .notion-breadcrumb{font-size:8px;color:var(--muted);display:flex;align-items:center;gap:3px}
     .notion-breadcrumb span{opacity:.6}
@@ -129,7 +130,7 @@
     .scene:nth-child(3) .connector{display:none}
 
     /* === 하단 === */
-    .footer{margin-top:clamp(16px,2vw,28px);display:flex;align-items:center;gap:8px;color:var(--muted);font-size:clamp(9px,1vw,12px);font-weight:700}
+    .footer{margin-top:clamp(10px,1.5vw,20px);padding-bottom:4px;display:flex;align-items:center;gap:8px;color:var(--muted);font-size:clamp(9px,1vw,12px);font-weight:700;flex:none}
     .footer b{color:var(--violet)}
 
     @media(max-width:760px){body{overflow:auto}.workflow{grid-template-columns:1fr}.connector{display:none!important}}
