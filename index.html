@@ -394,6 +394,8 @@
     let slides=[...document.querySelectorAll('.slide')];
     slides[5].before(slides[6]);
     slides=[...document.querySelectorAll('.slide')];
+    slides[11].before(slides[12]);
+    slides=[...document.querySelectorAll('.slide')];
     slides.forEach((slide,i)=>{const num=slide.querySelector('.num');if(num)num.textContent=String(i+1).padStart(2,'0')});
     const knowledgeHeading=document.querySelector('.consulting-extract .extract-heading');if(knowledgeHeading)knowledgeHeading.innerHTML='<span>암묵지를 명시지로 푸는 꿀팁</span><h2>감각을 말로 꺼내기</h2>';
     const knowledgeSteps=[['01 사례','고쳤던 피드백 하나 꺼내기','왜 고쳤는지, 그때 본 근거를 적습니다.'],['02 기준','판단 기준 한 줄로 바꾸기','예: 사용자 확인이 없으면 검증이 부족합니다.']];document.querySelectorAll('.consulting-step').forEach((step,i)=>{const item=knowledgeSteps[i];if(item)step.innerHTML=`<b>${item[0]}</b><div><h3>${item[1]}</h3><p>${item[2]}</p></div>`;else step.remove()});
