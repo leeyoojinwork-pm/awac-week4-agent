@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+<title id="title">멘토링 운영 OS 아키텍처</title><desc id="desc">Slack, Notion, Drive에서 자료를 연결해 Claude Code의 총괄과 역할별 Agent가 작업합니다. 멘토 승인 후 PDF와 Slack을 전달하고 수정 기록을 기준에 반영합니다.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 7 3.5 0 7" fill="none" stroke="#9689ae"/></marker></defs>
+<style>text{font-family:Arial,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#292331} .label{font-size:11px;letter-spacing:1.2px;fill:#81768e;font-weight:600}.name{font-size:18px;font-weight:600}.detail{font-size:13px;fill:#756b80}.line{fill:none;stroke:#bfb6ce;stroke-width:1.4}.accent{fill:#6c3bf2}</style>
+<rect width="1200" height="440" fill="white"/>
+<text class="label" x="18" y="23">01 / 연결 도구</text><text class="label" x="352" y="23">02 / 실행 환경</text><text class="label" x="978" y="23">03 / 검수와 전달</text>
+<path class="line" d="M218 100H253V160H344 M218 172H253 M218 244H253V160" marker-end="url(#arrow)"/>
+<text class="detail" x="275" y="145">연결</text>
+<rect x="344" y="45" width="580" height="276" rx="10" fill="#faf8ff" stroke="#ded5f1"/>
+<text class="label accent" x="366" y="72">VS CODE / CLAUDE CODE</text>
+<path class="line" d="M634 158V190M427 211V190H841V211M565 190V211M703 190V211"/>
+<path class="line" d="M924 160H963" marker-end="url(#arrow)"/>
+<path class="line" d="M1068 211V246" marker-end="url(#arrow)"/>
+<path class="line" d="M1068 315V380H923" marker-end="url(#arrow)"/>
+<path class="line" d="M344 380H303V160H344" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+<g><rect x="18" y="68" width="200" height="64" rx="7" fill="#fff" stroke="#e2dce9"/><image xlink:href="icon-slack.svg" x="35" y="88" width="22" height="22"/><text class="name" x="70" y="95">Slack</text><text class="detail" x="70" y="115">과제 제출과 요청</text></g>
+<g><rect x="18" y="140" width="200" height="64" rx="7" fill="#fff" stroke="#e2dce9"/><image xlink:href="icon-notion.svg" x="35" y="160" width="22" height="22"/><text class="name" x="70" y="167">Notion</text><text class="detail" x="70" y="187">판단 기준과 검수 기록</text></g>
+<g><rect x="18" y="212" width="200" height="64" rx="7" fill="#fff" stroke="#e2dce9"/><image xlink:href="icon-google-drive.svg" x="35" y="232" width="22" height="22"/><text class="name" x="70" y="239">Drive</text><text class="detail" x="70" y="259">첨부 자료와 PDF</text></g>
+<rect x="472" y="92" width="324" height="66" rx="7" fill="#6c3bf2"/><text x="634" y="119" text-anchor="middle" style="fill:white;font-size:20px;font-weight:600">Orchestrator</text><text x="634" y="141" text-anchor="middle" style="fill:#eee7ff;font-size:13px">업무 분배 → 공통 진단 공유 → 결과 취합</text>
+<g text-anchor="middle"><rect x="366" y="211" width="122" height="80" rx="6" fill="white" stroke="#d9cfee"/><text class="name" x="427" y="243">진단 Agent</text><text class="detail" x="427" y="269">제출물 진단 Skill</text>
+<rect x="504" y="211" width="122" height="80" rx="6" fill="white" stroke="#d9cfee"/><text class="name" x="565" y="243">PDF Agent</text><text class="detail" x="565" y="269">리포트 작성 Skill</text>
+<rect x="642" y="211" width="122" height="80" rx="6" fill="white" stroke="#d9cfee"/><text class="name" x="703" y="243">Slack Agent</text><text class="detail" x="703" y="269">멘트 작성 Skill</text>
+<rect x="780" y="211" width="122" height="80" rx="6" fill="white" stroke="#d9cfee"/><text class="name" x="841" y="243">검수 Agent</text><text class="detail" x="841" y="269">품질 검수 Skill</text></g>
+<rect x="974" y="112" width="208" height="99" rx="8" fill="#f4efff" stroke="#a98bea"/><text class="name accent" x="1078" y="151" text-anchor="middle">멘토 최종 승인</text><text class="detail" x="1078" y="179" text-anchor="middle">예외 판단과 발송 결정</text>
+<rect x="974" y="253" width="208" height="62" rx="7" fill="white" stroke="#d9d1e4"/><text class="name" x="1078" y="279" text-anchor="middle">PDF + Slack</text><text class="detail" x="1078" y="300" text-anchor="middle">승인된 결과 전달</text>
+<rect x="344" y="350" width="580" height="62" rx="7" fill="#fff" stroke="#d9d1e4"/><text class="name" x="365" y="376">기준과 실행 기록</text><text class="detail" x="365" y="399">input / criteria / skills / outputs / logs</text><text class="detail accent" x="902" y="386" text-anchor="end">수정 이유 → 기준 반영</text>
+<text class="detail" x="18" y="391">멘토링 운영 구조 요약</text>
+</svg>
