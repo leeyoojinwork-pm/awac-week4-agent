@@ -467,7 +467,7 @@
     document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(index+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(index-1)}if(e.key==='Home'){show(0)}if(e.key==='End'){show(slides.length-1)}});
     const replayFrame=slide=>{const frame=slide.querySelector('iframe[data-replay-on-active]');if(!frame)return;const src=frame.dataset.src||frame.getAttribute('src');frame.dataset.src=src;frame.setAttribute('src','about:blank');requestAnimationFrame(()=>frame.setAttribute('src',src))};
     const sync=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const i=slides.indexOf(entry.target);if(i<0)return;index=i;buttons.forEach((b,n)=>b.classList.toggle('active',n===i));slides.forEach((slide,n)=>slide.classList.toggle('is-active',n===i));document.getElementById('current').textContent=String(i+1).padStart(2,'0');document.getElementById('chapter').textContent=String(i+1).padStart(2,'0')+' / '+slides[i].dataset.title;document.getElementById('caption').textContent=slides[i].querySelector('.title').textContent.replace(/\s+/g,' ').trim();document.getElementById('progress').style.width=((i+1)/slides.length*100)+'%';replayFrame(slides[i])}),{root:document.querySelector('.deck'),threshold:.55});
-    slides.forEach(slide=>sync.observe(slide));
+    slides.forEach(slide=>sync.observe(slide));document.querySelectorAll(".slide").forEach((s,i)=>{const n=s.querySelector(".num");if(n)n.textContent=String(i+1).padStart(2,"0")});
     show(0);
   </script>
 </body>
